@@ -1,1 +1,1 @@
-web: gunicorn app:bookly
+web: gunicorn bookly:bookly
