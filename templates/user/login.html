@@ -1,0 +1,64 @@
+{% extends "base.html" %}
+
+
+{% block page_body %}
+
+
+    <div class="content-section-b">
+
+        <div class="container">
+
+            <div class="row">
+                <hr class="section-empty-spacer">
+            </div>
+
+            <div class="row">
+                <form class="form-horizontal" name="login" action="/user/login" method="POST">
+                    <div class="form-group">
+                        <!-- label for="inputEmail" class="col-sm-2 control-label">Username or Email</label> -->
+                        <div class="col-sm-offset-2 col-sm-8">
+                            <div class="input-group">
+                                <span class="input-group-addon"><span class="glyphicon glyphicon-user"></span></span>
+                                <input id="inputEmail" class="form-control" placeholder="email o nome utente"
+                                       type="text" name="username">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <!-- label for="inputPassword" class="col-sm-2 control-label">Password</label> -->
+                        <div class="col-sm-offset-2 col-sm-8">
+                            <div class="input-group">
+                                <span class="input-group-addon"><span class="glyphicon glyphicon-lock"></span></span>
+                                <input id="inputPassword" class="form-control" placeholder="password" type="text"
+                                       name="password">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-sm-offset-2 col-sm-10">
+                            <div class="checkbox">
+                                <label><input type="checkbox"> Ricordami </label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-sm-offset-2 col-sm-10">
+                            <input class="btn btn-primary" type="submit" value="Login">
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="section">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-offset-2 col-sm-10">
+                    <p>Non sei iscritto? <a href="/user/register">Registrati!</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}
