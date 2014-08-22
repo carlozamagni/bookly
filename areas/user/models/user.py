@@ -1,7 +1,7 @@
 import datetime
 import uuid
 import infrastructure
-import bson.objectid
+# import bson.objectid
 
 __author__ = 'cazamagni'
 
@@ -16,8 +16,8 @@ class User(db.Document):
     id = db.StringField(primary_key=True, default=str(uuid.uuid4()))
     first_name = db.StringField(max_length=40)
     last_name = db.StringField(max_length=40)
-    role = db.StringField()
-    username = db.StringField()
+    role = db.StringField(default=str('us'))
+    user_name = db.StringField(required=True, unique=True)
     password = db.StringField()
     created_at = db.DateTimeField(required=False, default=datetime.datetime.utcnow())
 
@@ -50,4 +50,5 @@ class User(db.Document):
     def get_user_home(self):
         # role = db['roles'].find_one({'_id': self.get_role()})
         # return role['home_page']
-        return '/%s/%s' % (self.role, str(self.id))
+        # return '/user/home/%s' % (str(self.id))
+        return '/user/'

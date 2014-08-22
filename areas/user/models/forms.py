@@ -6,13 +6,13 @@ __author__ = 'cazamagni'
 
 
 class RegisterForm(Form):
-    first_name = TextField('first_name', validators=[DataRequired()], description={'placeholder': 'first name'})
-    last_name = TextField('last_name', validators=[DataRequired()], description={'placeholder': 'last name'})
+    first_name = TextField('first_name', validators=[DataRequired()], description={'placeholder': 'Nome'})
+    last_name = TextField('last_name', validators=[DataRequired()], description={'placeholder': 'Cognome'})
     user_name = TextField('username', validators=[DataRequired()], description={'placeholder': 'username'})
     email = TextField('email', validators=[DataRequired()], description={'placeholder': 'email'})
 
     password = PasswordField(validators=[DataRequired()], description={'placeholder': 'password'})
-    password_check = PasswordField(validators=[DataRequired()], description={'placeholder': 'retype password'})
+    password_check = PasswordField(validators=[DataRequired()], description={'placeholder': 'password, di nuovo per favore :-) '})
 
     role = HiddenField("user")
 
@@ -31,5 +31,7 @@ class RegisterForm(Form):
 
         if self.password.data != self.password_check.data:
             return False
+
+        # TODO: check username already exists
 
         return True

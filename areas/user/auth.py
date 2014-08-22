@@ -19,11 +19,9 @@ db = infrastructure.db
 
 @login_manager.user_loader
 def load_user(user_id):
-    return User.objects(id=bson.objectid.ObjectId(user_id)).first()
+    return User.objects(id=str(user_id)).first()
 
-
-@user_app.route('/', methods=['POST', 'GET'])
-@user_app.route('/register')
+@user_app.route('/register', methods=['POST', 'GET'])
 def register():
     if request.method == 'GET' and session.has_key('user_home'):
         return redirect(session['user_home'])
@@ -39,11 +37,15 @@ def register():
 
     return render_template('user/register.html', form=form)
 
-# @app.route('/')
-@user_app.route('/<id>')
-def home(id):
-    user = User.objects(id=bson.objectid.ObjectId(id)).first()
-    return render_template('user/home.html', username=user.username)
+# @user_app.route('/<id>')
+@user_app.route('/')
+def home():
+    user_id = session.get('user_id', None)
+    if user_id:
+        user = User.objects(id=user_id).first()
+        return render_template('user/home.html', user=user)
+
+    return redirect('user/login')
 
 @user_app.route('/login', methods=['GET', 'POST'])
 def login():
@@ -52,8 +54,10 @@ def login():
 
         username = request.form['username']
         password = request.form['password']
-
-        user = User.objects(username=username).first()
+        try:
+            user = User.objects(user_name=username).first()
+        except Exception, e:
+            user = None
 
         if user is None or user['password'] != password:
             error = 'Invalid username or password'
@@ -64,8 +68,8 @@ def login():
 
             #home_page = user_model.User.get_role(user['role'])
             login_user(user=user)
-            user_home_url = '/user/%s' % user.get_string_id()
-            return redirect(user_home_url)
+
+            return redirect(user.get_user_home())
 
     return render_template('user/login.html', error=error)
 
@@ -73,5 +77,6 @@ def login():
 @user_app.route('/logout')
 def logout():
     session.pop('logged_in', None)
+    session.pop('user_id', None)
     logout_user()
     return redirect(url_for('main_page'))
