@@ -1,3 +1,4 @@
+import uuid
 from flask import Blueprint, flash, redirect, request, render_template, session
 from flask.ext.login import login_required
 from areas.catalog.models.book import Book
@@ -27,6 +28,7 @@ def add():
             flash('Success')
             book = Book()
             form.populate_obj(book)
+            book.id = str(uuid.uuid4())  # workaround: duplication errors during item creation
             book.owner = session.get('user_id', None)
             book.save()
 
