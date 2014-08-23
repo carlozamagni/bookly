@@ -58,7 +58,7 @@ dettagli del libro e vede i dati del proprietario.
 Questa modalità permette di contattare la persona che
 offre il libri senza passare dalla funzione di match.
 
-### Match
+### Match automatico
 Il match fra la domanda e l'offerta deve essere fatto
 autonomamente dal programma.
 E' infatti possibile che i libri che l'utente sta
