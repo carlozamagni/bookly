@@ -1,27 +1,22 @@
 Bookly
 ===
-Bookly si rivolge alle persone che vogliono vendere,
-acquistare o donare i propri libri.
+Bookly si rivolge alle persone che vogliono vendere, acquistare o donare i propri libri.
 
 Bookly non si preoccupa di gestire la vendita dei libri.
 Non è questo il suo obiettivo.
-Lo scopo del programma è quello di semplificare il
-match fra domanda e offerta mettendo in contatto
+Lo scopo del programma è quello di semplificare il match fra domanda e offerta mettendo in contatto
 gli interessati nel modo più semplice possibile
 
 
 Registrazione
 ---
-Gli utenti possono registrarsi su Bookly utilizzando i
-propri account di:
+Gli utenti possono registrarsi su Bookly utilizzando i propri account di:
 
 * Facebook
 * Twitter
 * Google
 
-Se l'utente non possiede nessuno di questi account, è
-comunque possibile effettuare la registrazione direttamente
-sul sito.
+Se l'utente non possiede nessuno di questi account, è comunque possibile effettuare la registrazione direttamente sul sito.
 
 Funzionalità principali
 ---
@@ -50,36 +45,25 @@ In questo caso è sufficiente i seguenti dati:
 * Data massima (oltre la quale non sono più interessato)
  
 ### Ricerca libri
-Questa funzione permette agli utenti di mostrare
-una lista di tutti i libri presenti in archivio.
+Questa funzione permette agli utenti di mostrare una lista di tutti i libri presenti in archivio.
 Sia quelli offerti che ricercati.
-Dopo aver visualizzato la lista, l'utente clicca sui
-dettagli del libro e vede i dati del proprietario.
-Questa modalità permette di contattare la persona che
-offre il libri senza passare dalla funzione di match.
+Dopo aver visualizzato la lista, l'utente clicca sui dettagli del libro e vede i dati del proprietario.
+Questa modalità permette di contattare la persona che offre il libri senza passare dalla funzione di match.
 
 ### Match automatico
-Il match fra la domanda e l'offerta deve essere fatto
-autonomamente dal programma.
-E' infatti possibile che i libri che l'utente sta
-cercando vengano inseriti da altri utenti in un momento
-successivo a quello dell'inserimento della ricerca.
-Quando il programma trova dei match fra domanda e
-offerta viene inviata una mail ai 2 interessati
+Il match fra la domanda e l'offerta deve essere fatto autonomamente dal programma.
+E' infatti possibile che i libri che l'utente sta cercando vengano inseriti da altri utenti in un momento successivo a quello dell'inserimento della ricerca.
+Quando il programma trova dei match fra domanda e offerta viene inviata una mail ai 2 interessati
 
-
-Funzioni avanzate
+Funzionalità da valutare per versioni future
 ---
-In una seconda versione, prevederemo alcuni automatismi,
-per semplificare le funzioni utente, quali:
+In una seconda versione, prevederemo alcuni automatismi, per semplificare le funzioni utente, quali:
 
-1. Se un utente ha già inserito un libro, il programma
-può accorgersene e proporre automaticamente la descrizione
-
-2. Con il codice ISBN si può estrarre la copertina del
-libro da siti come amazon
-
+1. Se un utente ha già inserito un libro, il programma può accorgersene e proporre automaticamente la descrizione
+2. Con il codice ISBN si può estrarre la copertina del libro da siti come amazon
 3. Aggiunta di un controllo sul codice ISBN (deve essere valido)
+4. Bookly dovrà essere in lingua
+5. Dovrà essere possibile inserire la propria zona di appartenenza (es: provincia)
 
 Feedback
 ---
