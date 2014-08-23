@@ -33,6 +33,7 @@ compilando i seguenti dati:
 * ISBN (obbligatorio)
 * Titolo (obbligatorio)
 * Autore
+* Nota libera
 * Stato del libro (come nuovo, malconcio, ecc.)
 * Tipo offerta (venderlo, donarlo)
 
@@ -43,6 +44,7 @@ In questo caso è sufficiente i seguenti dati:
 
 * ISBN (obbligatorio)
 * Data massima (oltre la quale non sono più interessato)
+* Nota libera
  
 ### Ricerca libri
 Questa funzione permette agli utenti di mostrare una lista di tutti i libri presenti in archivio.
@@ -55,7 +57,7 @@ Il match fra la domanda e l'offerta deve essere fatto autonomamente dal programm
 E' infatti possibile che i libri che l'utente sta cercando vengano inseriti da altri utenti in un momento successivo a quello dell'inserimento della ricerca.
 Quando il programma trova dei match fra domanda e offerta viene inviata una mail ai 2 interessati
 
-Funzionalità da valutare per versioni future
+Spunti da valutare per versioni future
 ---
 In una seconda versione, prevederemo alcuni automatismi, per semplificare le funzioni utente, quali:
 
@@ -64,11 +66,13 @@ In una seconda versione, prevederemo alcuni automatismi, per semplificare le fun
 3. Aggiunta di un controllo sul codice ISBN (deve essere valido)
 4. Bookly dovrà essere in lingua
 5. Dovrà essere possibile inserire la propria zona di appartenenza (es: provincia)
+6. Un libro trovato deve avere una funzione per poterlo mettere nei libri disponibili per la vendita o cancellato
+7. Creare una moneta di virtuale a punti per la vendita / acquisto dei libri
+8. Ogni acquisto che viene fatto genera una donazione
 
 Feedback
 ---
-Feedback e segnalazioni sono gradite e possono essere
-inserite qui: 
+Feedback e segnalazioni sono gradite e possono essere inserite qui: 
 
 * https://github.com/carlozamagni/bookly/issues
 
