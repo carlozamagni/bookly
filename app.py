@@ -11,7 +11,8 @@ app = Flask(__name__)
 app.config['SECRET_KEY'] = '123456790'
 
 # db config
-app.config['MONGODB_SETTINGS'] = {'DB': 'testing', 'HOST': 'mongodb://bookly:bookly@ds059509.mongolab.com:59509/bookly'}
+#app.config['MONGODB_SETTINGS'] = {'DB': 'testing', 'HOST': 'mongodb://bookly:bookly@ds059509.mongolab.com:59509/bookly'}
+app.config['MONGODB_SETTINGS'] = {'DB': 'testing', 'HOST': 'mongodb://localhost:27017/bookly'}
 db = MongoEngine()
 db.init_app(app)
 
@@ -28,6 +29,9 @@ setattr(sys.modules['infrastructure'], 'db', db)
 
 from areas.user.auth import user_app
 app.register_blueprint(blueprint=user_app, url_prefix='/user')
+
+from areas.catalog.catalog import catalog_app
+app.register_blueprint(blueprint=catalog_app, url_prefix='/catalog')
 
 @app.route('/')
 def home():

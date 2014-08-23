@@ -9,8 +9,23 @@
                 <hr class="section-empty-spacer">
             </div>
             <div class="row">
-                <p>{{ user.user_name }}</p>
+                <p>Libri di: {{ user.user_name }}</p>
             </div>
+
+            <div class="table-responsive">
+                <table class=".table-striped">
+                    {% for i in books.items %}
+
+                        <tr class="active">
+                            <td>{{ i.isbn }}</td>
+                            <td>{{ i.title }}</td>
+                            <td><a href="">dettagli</a></td>
+                        </tr>
+
+                    {% endfor %}
+                </table>
+            </div>
+
         </div>
     </div>
 

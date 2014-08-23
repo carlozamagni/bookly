@@ -23,10 +23,11 @@ def load_user(user_id):
 
 @user_app.route('/register', methods=['POST', 'GET'])
 def register():
-    if request.method == 'GET' and session.has_key('user_home'):
-        return redirect(session['user_home'])
-
     form = RegisterForm()
+
+    if request.method == 'GET' and session.has_key('user_id'):
+        return redirect('/user')
+
     if form.validate_on_submit():
         flash('Success')
         user = User()
@@ -43,7 +44,8 @@ def home():
     user_id = session.get('user_id', None)
     if user_id:
         user = User.objects(id=user_id).first()
-        return render_template('user/home.html', user=user)
+        #return render_template('user/home.html', user=user)
+        return redirect('catalog/my')
 
     return redirect('user/login')
 
@@ -65,11 +67,12 @@ def login():
             session['logged_in'] = True
             session['user_id'] = user.get_string_id()
             session['user_home'] = user.get_user_home()
+            session['user_name'] = user.user_name
 
             #home_page = user_model.User.get_role(user['role'])
             login_user(user=user)
 
-            return redirect(user.get_user_home())
+            return redirect('catalog/my')
 
     return render_template('user/login.html', error=error)
 
@@ -78,5 +81,6 @@ def login():
 def logout():
     session.pop('logged_in', None)
     session.pop('user_id', None)
+    session.pop('user_name', None)
     logout_user()
-    return redirect(url_for('main_page'))
+    return redirect('/')
