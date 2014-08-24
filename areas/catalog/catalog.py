@@ -1,3 +1,4 @@
+import re
 import uuid
 from flask import Blueprint, flash, redirect, request, render_template, session
 from flask.ext.login import login_required
@@ -59,18 +60,21 @@ def book_details(book_id):
 
     return redirect('/catalog/my')
 
-'''
+
 @catalog_app.route('/search')
-@catalog_app.route('/search/<page_id>')
-def search(page_id=0):
+def search():
     # search performed with GET request
     full_text_search_query = request.args.get('q')
     isbn_query = request.args.get('isbn')
 
     q_result = None
     if isbn_query:
-        q_result = Book.objects(isbn=isbn_query).paginate(page=page_id, per_page=15)
+        q_result = Book.objects(isbn=isbn_query)
 
     if not q_result and full_text_search_query:
-        # TODO: full text query
-'''
+        regx = re.compile(full_text_search_query, re.IGNORECASE)
+        q_result = Book.objects(__raw__={'$or': [{'title': regx},
+                                                 {'author': regx},
+                                                 {'notes': regx}]})
+
+    return render_template('catalog/search_result.html', results=q_result)
