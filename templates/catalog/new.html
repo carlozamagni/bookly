@@ -25,22 +25,33 @@
                                             <span class="glyphicon glyphicon-barcode"></span>
                                         </span>
                                     {% endif %}
+
                                     {% if f.name == 'title' %}
                                         <span class="input-group-addon">
                                             <span class="glyphicon glyphicon-tag"></span>
                                         </span>
                                     {% endif %}
+
+                                    {% if f.name == 'author' %}
+                                        <span class="input-group-addon">
+                                            <span class="glyphicon glyphicon-book"></span>
+                                        </span>
+                                    {% endif %}
+
                                     {% if f.name == 'notes' %}
                                         <span class="input-group-addon">
                                             <span class="glyphicon glyphicon-pencil"></span>
                                         </span>
                                     {% endif %}
+
                                     {% if f.name != 'status' %}
                                         <div>
                                             {{ f(class_="form-control", placeholder=f.description['placeholder']) }}
                                         </div>
                                     {% endif %}
+                                    
                                 </div>
+                                
                                 {% if f.errors %}
                                     <ul>
                                         {% for e in f.errors %}
