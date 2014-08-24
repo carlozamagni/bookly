@@ -2,12 +2,9 @@ import uuid
 import datetime
 import infrastructure
 
-
 __author__ = 'carlozamagni'
 
-
 db = infrastructure.db
-
 
 class Book(db.Document):
     id = db.StringField(primary_key=True, default=str(uuid.uuid4()))
