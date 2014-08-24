@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+{% extends "base.html" %}
+
+{% block angular_definition %}ng-app="searchApp"{% endblock %}
+{% block custom_head_scripts %}
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.3.0-beta.5/angular.min.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.3.0-beta.5/angular-route.js"></script>
+
+    <script src="/static/controllers/catalog/detail.js"></script>
+    <script>
+        catalogApp.value("slug", "{{ item.sku }}");
+    </script>
+{% endblock %}
+
+{% block page_body %}
+    <h3>TODO: search result page</h3>
+{% endblock %}

@@ -33,6 +33,9 @@ app.register_blueprint(blueprint=user_app, url_prefix='/user')
 from areas.catalog.catalog import catalog_app
 app.register_blueprint(blueprint=catalog_app, url_prefix='/catalog')
 
+from areas.api.search import api
+app.register_blueprint(blueprint=api, url_prefix='/api')
+
 @app.route('/')
 def home():
     return render_template('home.html')

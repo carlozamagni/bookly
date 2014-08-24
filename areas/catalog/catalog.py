@@ -1,6 +1,6 @@
 import re
 import uuid
-from flask import Blueprint, flash, redirect, request, render_template, session
+from flask import Blueprint, flash, redirect, request, render_template, session, jsonify
 from flask.ext.login import login_required
 from areas.catalog.models.book import Book
 from areas.catalog.models.forms import NewBookForm
@@ -61,20 +61,3 @@ def book_details(book_id):
     return redirect('/catalog/my')
 
 
-@catalog_app.route('/search')
-def search():
-    # search performed with GET request
-    full_text_search_query = request.args.get('q')
-    isbn_query = request.args.get('isbn')
-
-    q_result = None
-    if isbn_query:
-        q_result = Book.objects(isbn=isbn_query)
-
-    if not q_result and full_text_search_query:
-        regx = re.compile(full_text_search_query, re.IGNORECASE)
-        q_result = Book.objects(__raw__={'$or': [{'title': regx},
-                                                 {'author': regx},
-                                                 {'notes': regx}]})
-
-    return render_template('catalog/search_result.html', results=q_result)

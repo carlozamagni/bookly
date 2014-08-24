@@ -19,3 +19,13 @@ class Book(db.Document):
 
     def __unicode__(self):
         return '%s - %s' % (self.isbn, self.title)
+
+    def dict_representation(self):
+        return {'id': self.id,
+                'isbn': self.isbn,
+                'title': self.title,
+                'author': self.author,
+                'owner': self.owner,
+                'created_at': self.created_at,
+                'status': self.status,
+                'notes': self.notes}
