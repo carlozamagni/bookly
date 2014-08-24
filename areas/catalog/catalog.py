@@ -8,7 +8,6 @@ import infrastructure
 __author__ = 'carlozamagni'
 
 
-
 catalog_app = Blueprint('catalog', __name__, static_folder='static', template_folder='templates')
 
 login_manager = infrastructure.login_manager

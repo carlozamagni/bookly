@@ -6,6 +6,7 @@ __author__ = 'carlozamagni'
 
 db = infrastructure.db
 
+
 class Book(db.Document):
     id = db.StringField(primary_key=True, default=str(uuid.uuid4()))
     isbn = db.StringField(required=True, max_length=40)
