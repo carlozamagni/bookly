@@ -15,6 +15,7 @@ login_manager = infrastructure.login_manager
 admin = infrastructure.admin
 db = infrastructure.db
 
+
 @catalog_app.route('/add', methods=['GET', 'POST'])
 @login_required
 def add():
@@ -38,6 +39,7 @@ def add():
 
     return render_template('catalog/new.html', form=form)
 
+
 @catalog_app.route('/my')
 @catalog_app.route('/my/<page_id>')
 def my_books_list(page_id=1):
@@ -48,6 +50,7 @@ def my_books_list(page_id=1):
 
     return redirect('user/login')
 
+
 @catalog_app.route('details/<book_id>')
 def book_details(book_id):
     book = Book.objects(id=book_id).first()
@@ -56,3 +59,19 @@ def book_details(book_id):
         return render_template('catalog/details.html', book=book, is_owner=is_owner)
 
     return redirect('/catalog/my')
+
+'''
+@catalog_app.route('/search')
+@catalog_app.route('/search/<page_id>')
+def search(page_id=0):
+    # search performed with GET request
+    full_text_search_query = request.args.get('q')
+    isbn_query = request.args.get('isbn')
+
+    q_result = None
+    if isbn_query:
+        q_result = Book.objects(isbn=isbn_query).paginate(page=page_id, per_page=15)
+
+    if not q_result and full_text_search_query:
+        # TODO: full text query
+'''
