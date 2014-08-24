@@ -69,6 +69,7 @@ In una seconda versione, prevederemo alcuni automatismi, per semplificare le fun
 6. Un libro trovato deve avere una funzione per poterlo mettere nei libri disponibili per la vendita o cancellato
 7. Creare una moneta di virtuale a punti per la vendita / acquisto dei libri
 8. Ogni acquisto che viene fatto genera una donazione
+9. Scansione dei codice a barre tramite cellulare / webcam per velocizzare l'inserimento dei libri nelle liste
 
 Feedback
 ---
