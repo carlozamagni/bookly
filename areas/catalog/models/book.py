@@ -1,5 +1,6 @@
 import uuid
 import datetime
+from areas.catalog.models.message import Message
 import infrastructure
 
 __author__ = 'carlozamagni'
@@ -16,6 +17,7 @@ class Book(db.Document):
     status = db.IntField(required=True, choices=[1, 2, 3, 4, 5])
     notes = db.StringField(max_length=5000)
     created_at = db.DateTimeField(required=False, default=datetime.datetime.utcnow())
+    reviews = db.ListField(db.EmbeddedDocumentField(Message))
 
     def __unicode__(self):
         return '%s - %s' % (self.isbn, self.title)
