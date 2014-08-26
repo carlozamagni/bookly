@@ -1,9 +1,67 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title></title>
-</head>
-<body>
+{% extends "base.html" %}
 
-</body>
-</html>
+{% block page_body %}
+
+    <div class="content-section-b">
+        <div class="container">
+
+            <div class="row">
+                <hr class="section-empty-spacer">
+            </div>
+            <div class="row">
+                <p>Libri di: {{ user }}</p>
+            </div>
+
+            <div class="row">
+
+                <div class="table-responsive">
+                    <table class="table table-striped">
+
+                        <tr class="active">
+                            <td>ISBN</td>
+                            <td>{{ book.isbn }}</td>
+                        </tr>
+
+                        <tr class="active">
+                            <td>Titolo</td>
+                            <td>{{ book.title }}</td>
+                        </tr>
+
+                        <tr class="active">
+                            <td>Autore</td>
+                            <td>{{ book.author }}</td>
+                        </tr>
+
+                        <tr class="active">
+                            <td>Proprietario del libro</td>
+                            <td>{{ book.owner }}</td>
+                        </tr>
+
+                    </table>
+
+                </div>
+
+            </div>
+
+            <div class="row">
+
+                <div class="panel panel-default">
+                    <div class="panel-heading">Note</div>
+                    <div class="panel-body">
+                        {{ book.notes }}
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- discussions or message threads can be visualized as this:
+
+            http://getbootstrap.com/components/#list-group-custom-content
+
+            that would be cool!
+            -->
+
+        </div>
+    </div>
+
+{% endblock %}
