@@ -9,7 +9,7 @@
                 <hr class="section-empty-spacer">
             </div>
             <div class="row">
-                <p>Libri di: {{ user }}</p>
+                <h3>{{ book.title }}</h3>
             </div>
 
             <div class="row">
@@ -34,7 +34,7 @@
 
                         <tr class="active">
                             <td>Proprietario del libro</td>
-                            <td>{{ book.owner }}</td>
+                            <td>{{ owner.first_name }} {{ owner.last_name }}</td>
                         </tr>
 
                     </table>

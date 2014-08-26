@@ -4,6 +4,7 @@ from flask import Blueprint, flash, redirect, request, render_template, session,
 from flask.ext.login import login_required
 from areas.catalog.models.book import Book
 from areas.catalog.models.forms import NewBookForm
+from areas.user.models.user import User
 import infrastructure
 
 __author__ = 'carlozamagni'
@@ -51,12 +52,13 @@ def my_books_list(page_id=1):
     return redirect('user/login')
 
 
-@catalog_app.route('details/<book_id>')
+@catalog_app.route('/details/<book_id>')
 def book_details(book_id):
     book = Book.objects(id=book_id).first()
     if book:
         is_owner = book.owner == session.get('user_id', None)
-        return render_template('catalog/details.html', book=book, is_owner=is_owner)
+        owner_details = User.objects(id=str(book.owner)).first()
+        return render_template('catalog/details.html', book=book, owner=owner_details, is_owner=is_owner)
 
     return redirect('/catalog/my')
 
