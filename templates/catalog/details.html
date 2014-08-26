@@ -46,6 +46,18 @@
             <div class="row">
 
                 <div class="panel panel-default">
+                    <div class="panel-heading">Valutazione sullo stato del libro</div>
+                    <div class="panel-body">
+                        {% for i in range(1,book.status) %}
+                            <span class="glyphicon glyphicon-star"></span>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+
+                <div class="panel panel-default">
                     <div class="panel-heading">Note</div>
                     <div class="panel-body">
                         {{ book.notes }}
